@@ -8,9 +8,6 @@ gem 'google-api-client',  '0.6.4'
 gem 'gon'
 gem 'gmaps4rails'
 
-# Use sqlite3 as the database for Active Record
-gem 'sqlite3'
-
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
