@@ -7,7 +7,7 @@ gem 'twitter'
 gem 'google-api-client',  '0.6.4'
 gem 'gon'
 gem 'gmaps4rails'
-
+gem 'pg'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
 
