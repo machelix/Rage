@@ -137,26 +137,41 @@
                               data: { lat: marker.getPosition().lat(), lng: marker.getPosition().lng() },
                               success: function(data) {
                                   tweet_locations = [];
-                                  data.map( function(x) {
+                                  jQuery.each(data, function(i, val) {
+
+                                      if (val.loc == null) {
+                                        var latlong = calculateLatLong(marker.getPosition().lat(),marker.getPosition().lng())
+                                        tweet_lat = latlong[0]
+                                        tweet_long = latlong[1]
+                                      } else {
+                                         tweet_lat = val.loc[0]
+                                         tweet_long = val.loc[1] }
+
+                                      console.log('lat ' + tweet_lat + ' long ' + tweet_long);
+
                                       // Create a marker for each tweet location
                                       var image = '<%= asset_path 'tweet_16_black.png' %>'
                                       var tweet_marker = new google.maps.Marker({
                                           map: map,
                                           icon: image,
-                                          title: x.user.screen_name +  " : "  + x.text,
-                                          position: new google.maps.LatLng(x.geo.coordinates[0],x.geo.coordinates[1])
+                                          twitter_handle: val.name,
+                                          title: val.text,
+                                          tweet_ts: val.ts,
+                                          position: new google.maps.LatLng(tweet_lat,tweet_long)
                                       });
 
 
                                       google.maps.event.addListener(tweet_marker,'click', function(){
                                           var infowindow = new google.maps.InfoWindow({
-                                              content:  x.user.screen_name +  " : "  + x.text
+                                              content:  val.name +  " : "  + val.text
                                           });
                                           infowindow.open(map,tweet_marker);
                                       });
                                       tweet_locations.push(tweet_marker);
                                   });
-                                  tweet_locations.setMap(map);
+                                  //$('body').append('<div id="tweets">');
+                                  //alert($('#tweets').attr('id'));
+                                  //tweet_locations.setMap(map);
                               },
                               error: function() {
                               }
@@ -187,6 +202,28 @@
       }
 
       google.maps.event.addDomListener(window, 'load', initialize);
+
+      function calculateLatLong(lat,lon)
+      {
+          //Earth’s radius, sphere
+          R=6378137
+
+          //offsets in meters
+          max_offset = 50
+          min_offset = 1
+          dn = Math.random() * (max_offset - min_offset) + min_offset;
+          de = Math.random() * (max_offset - min_offset) + min_offset;
+
+          //Coordinate offsets in radians
+          dLat = dn/R;
+          dLon = de/(R*Math.cos(Math.PI*lat/180));
+
+          //OffsetPosition, decimal degrees
+          latO = lat + dLat * 180/Math.PI;
+          lonO = lon + dLon * 180/Math.PI;
+
+          return [latO.toFixed(8), lonO.toFixed(8)];
+      }
 
   </script>
   <style>

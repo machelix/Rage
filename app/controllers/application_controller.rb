@@ -1,5 +1,6 @@
 require 'twitter'
 require 'google/api_client'
+require 'json'
 #require 'oauth/oauth_util'
 
 class ApplicationController < ActionController::Base
@@ -27,15 +28,20 @@ class ApplicationController < ActionController::Base
     #{ geocode: '-22.912214,-43.230182,1mi'}
     tweet_point = "#{params[:lat]}," + "#{params[:lng]}," + "1mi"
 
-    @tweets = @client.search('', { geocode: tweet_point, result_type: "recent" , count: 100} )
+    @tweets = @client.search('', { geocode: tweet_point, result_type: "recent" , count: 50} )
 
+    api_response = {}
     @tweets.collect do |tweet|
-      puts "#{tweet.user.screen_name}: #{tweet.text} : #{tweet.created_at} : #{tweet.geo.coordinates}"
+      (tweet.geo.coordinates.class == Twitter::NullObject) ? nil : tweet.geo.coordinates
+      api_response.merge!("#{tweet.id}" => { "name" => "#{tweet.user.screen_name}", "text" => "#{tweet.text}",
+                          "ts" => "#{tweet.created_at}" , "loc" => (tweet.geo.coordinates.class == Twitter::NullObject) ? nil : tweet.geo.coordinates})
     end
+
+    logger.info api_response.to_json
 
     respond_to do |format|
       format.html
-      format.json { render :json => @tweets }
+      format.json { render :json => api_response.to_json }
     end
 
   end
