@@ -3,11 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/rage.iml" afterPath="$PROJECT_DIR$/.idea/rage.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="rage.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Gemfile" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1387717909386" ignored="false" />
-    <file path="/application_controller.rb" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1387722103033" ignored="false" />
+    <file path="/application_controller.rb" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1387724841897" ignored="false" />
     <file path="/routes.rb" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1387112594586" ignored="false" />
     <file path="/index.html.erb" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1387680749079" ignored="false" />
     <file path="/youtube.html.erb" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1385415534295" ignored="false" />
@@ -18,6 +20,7 @@
     <file path="/Dummy.txt" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1387717582022" ignored="false" />
     <file path="/database.yml" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1387665475508" ignored="false" />
     <file path="/production.rb" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1387717626359" ignored="false" />
+    <file path="/utils.rb" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1387724951752" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +43,7 @@
       <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/application/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="165" column="81" selection-start="6670" selection-end="6670" vertical-scroll-proportion="-9.333333">
+            <state line="165" column="81" selection-start="6670" selection-end="6670" vertical-scroll-proportion="2.4583333">
               <folding />
             </state>
           </provider>
@@ -49,7 +52,7 @@
       <file leaf-file-name="application_controller.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="29" column="66" selection-start="1029" selection-end="1029" vertical-scroll-proportion="0.3747841">
+            <state line="33" column="92" selection-start="1186" selection-end="1204" vertical-scroll-proportion="0.66096866">
               <folding />
             </state>
           </provider>
@@ -86,6 +89,7 @@
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/config/environments/production.rb" />
         <option value="$PROJECT_DIR$/app/views/application/index.html.erb" />
+        <option value="$USER_HOME$/.rvm/gems/ruby-2.0.0-p247/gems/twitter-5.3.0/lib/twitter/rest/api/utils.rb" />
         <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
       </list>
     </option>
@@ -181,10 +185,6 @@
               <option name="myItemId" value="app" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -200,25 +200,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="views" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="application" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rage" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rage" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
+              <option name="myItemId" value="controllers" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -247,7 +229,7 @@
       <recent name="$PROJECT_DIR$/app/views/application" />
     </key>
   </component>
-  <component name="RunManager" selected="Rails.Development: rage">
+  <component name="RunManager" selected="Rails.Production: rage">
     <configuration default="true" type="RakeRunConfigurationType" factoryName="Rake">
       <module name="" />
       <RAKE_RUN_CONFIG_SETTINGS_ID NAME="RUBY_ARGS" VALUE="-e $stdout.sync=true;$stderr.sync=true;load($0=ARGV.shift)" />
@@ -441,6 +423,8 @@
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="RAILS_SERVER_TYPE" VALUE="Default" />
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="ENVIRONMENT_TYPE" VALUE="production" />
       <RAILS_SERVER_CONFIG_SETTINGS_ID NAME="LAUNCH_JS" VALUE="false" />
+      <RunnerSettings RunnerId="RubyRunner" />
+      <ConfigurationWrapper RunnerId="RubyRunner" />
       <method />
     </configuration>
     <configuration default="false" name="Development: rage" type="RailsRunConfigurationType" factoryName="Rails">
@@ -513,11 +497,11 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28768232" sideWeight="0.67096776" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.28768232" sideWeight="0.63225806" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32899022" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3483871" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.36774194" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -589,57 +573,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.0.0-p247/gems/twitter-5.0.0/lib/twitter/trend_results.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="21" column="10" selection-start="488" selection-end="488" vertical-scroll-proportion="0.33333334" />
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.0.0-p247/gems/twitter-5.0.0/lib/twitter/rest/api/utils.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="123" column="24" selection-start="4020" selection-end="4020" vertical-scroll-proportion="0.41860464" />
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.0.0-p247/gems/twitter-5.0.0/lib/twitter/search_results.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="8" selection-start="53" selection-end="53" vertical-scroll-proportion="0.072829135" />
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.0.0-p247/gems/twitter-5.0.0/lib/twitter/rest/api/search.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="24" selection-start="2956" selection-end="2956" vertical-scroll-proportion="0.43313953" />
-      </provider>
-    </entry>
-    <entry file="file://$APPLICATION_HOME_DIR$/rubystubs20/hash.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="709" column="8" selection-start="25253" selection-end="25253" vertical-scroll-proportion="0.33333334" />
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.0.0-p247/gems/json-1.8.1/lib/json.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="37" column="35" selection-start="1200" selection-end="1231" vertical-scroll-proportion="0.5959302" />
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.0.0-p247/gems/railties-4.0.0/lib/rails/test_unit/railtie.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.0.0-p247/gems/railties-4.0.0/lib/rails/all.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.0.0-p247/gems/railties-4.0.0/lib/rails/engine.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="443" column="8" selection-start="16872" selection-end="16872" vertical-scroll-proportion="0.33333334">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/application.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="29" selection-start="165" selection-end="165" vertical-scroll-proportion="0.1266892">
@@ -661,13 +594,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Gemfile">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="16" column="0" selection-start="458" selection-end="458" vertical-scroll-proportion="0.15202703">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_controller/metal/http_authentication.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="69" column="14" selection-start="2254" selection-end="2254" vertical-scroll-proportion="0.33333334">
@@ -675,16 +601,86 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/bin/rails">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="2" column="0" selection-start="87" selection-end="87" vertical-scroll-proportion="0.07978723">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/config/boot.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="0" selection-start="108" selection-end="108" vertical-scroll-proportion="0.11968085">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Gemfile">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="16" column="0" selection-start="458" selection-end="458" vertical-scroll-proportion="0.63829786">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/rubystubs20/date.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="87" column="77" selection-start="2942" selection-end="2942" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.0.0-p247/gems/actionpack-4.0.0/lib/action_view/helpers/date_helper.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="113" column="0" selection-start="7922" selection-end="7922" vertical-scroll-proportion="-40.245014">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/date/format.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.rvm/rubies/ruby-2.0.0-p247/lib/ruby/2.0.0/date.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="3" column="16" selection-start="86" selection-end="86" vertical-scroll-proportion="0.12362637">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$APPLICATION_HOME_DIR$/rubystubs20/date_time.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="579" column="9" selection-start="27010" selection-end="27015" vertical-scroll-proportion="0.0">
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/application/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="165" column="81" selection-start="6670" selection-end="6670" vertical-scroll-proportion="-9.333333">
+        <state line="165" column="81" selection-start="6670" selection-end="6670" vertical-scroll-proportion="2.4583333">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.0.0-p247/gems/twitter-5.3.0/lib/twitter/rest/api/utils.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="115" column="108" selection-start="4056" selection-end="4056" vertical-scroll-proportion="0.37606838">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.0.0-p247/gems/twitter-5.3.0/lib/twitter/rest/api/search.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="30" column="24" selection-start="2958" selection-end="2958" vertical-scroll-proportion="0.8119658">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="66" selection-start="1029" selection-end="1029" vertical-scroll-proportion="0.3747841">
+        <state line="33" column="92" selection-start="1186" selection-end="1204" vertical-scroll-proportion="0.66096866">
           <folding />
         </state>
       </provider>

@@ -1,6 +1,7 @@
 require 'twitter'
 require 'google/api_client'
 require 'json'
+require 'date'
 #require 'oauth/oauth_util'
 
 class ApplicationController < ActionController::Base
@@ -28,8 +29,9 @@ class ApplicationController < ActionController::Base
 
     #{ geocode: '-22.912214,-43.230182,1mi'}
     tweet_point = "#{params[:lat]}," + "#{params[:lng]}," + "0.5km"
+    current_ts = Time.now.strftime("%Y-%m-%d")
 
-    @tweets = @client.search('', { geocode: tweet_point, result_type: "recent" , count: 100} )
+    @tweets = @client.search('', { geocode: tweet_point, result_type: "recent" , count: 100, since: current_ts} )
 
     api_response = {}
     @tweets.collect do |tweet|
