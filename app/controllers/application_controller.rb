@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
     #{ geocode: '-22.912214,-43.230182,1mi'}
     tweet_point = "#{params[:lat]}," + "#{params[:lng]}," + "1mi"
 
-    @tweets = @client.search('', { geocode: tweet_point, result_type: "recent" , count: 50} )
+    @tweets = @client.search('', { geocode: tweet_point, result_type: "recent" , count: 100} )
 
     api_response = {}
     @tweets.collect do |tweet|
