@@ -9,11 +9,11 @@ gem 'gon'
 gem 'gmaps4rails'
 
 # Use sqlite3 as the database for Active Record
-gem 'sqlite3', :group => [:development, :test]
+#gem 'sqlite3', :group => [:development, :test]
 
 group :production do
   gem 'thin'
-  gem 'pg'
+#  gem 'pg'
 end
 
 # Use SCSS for stylesheets
