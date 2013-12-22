@@ -27,7 +27,7 @@ class ApplicationController < ActionController::Base
     #logger.info request.body.read
 
     #{ geocode: '-22.912214,-43.230182,1mi'}
-    tweet_point = "#{params[:lat]}," + "#{params[:lng]}," + "1mi"
+    tweet_point = "#{params[:lat]}," + "#{params[:lng]}," + "0.5km"
 
     @tweets = @client.search('', { geocode: tweet_point, result_type: "recent" , count: 100} )
 

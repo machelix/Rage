@@ -7,7 +7,7 @@
     <ignored path="rage.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Gemfile" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1387717909386" ignored="false" />
-    <file path="/application_controller.rb" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1387719435654" ignored="false" />
+    <file path="/application_controller.rb" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1387722103033" ignored="false" />
     <file path="/routes.rb" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1387112594586" ignored="false" />
     <file path="/index.html.erb" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1387680749079" ignored="false" />
     <file path="/youtube.html.erb" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1385415534295" ignored="false" />
@@ -49,7 +49,7 @@
       <file leaf-file-name="application_controller.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="90" selection-start="1120" selection-end="1120" vertical-scroll-proportion="0.4265976">
+            <state line="29" column="66" selection-start="1029" selection-end="1029" vertical-scroll-proportion="0.3747841">
               <folding />
             </state>
           </provider>
@@ -684,7 +684,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="90" selection-start="1120" selection-end="1120" vertical-scroll-proportion="0.4265976">
+        <state line="29" column="66" selection-start="1029" selection-end="1029" vertical-scroll-proportion="0.3747841">
           <folding />
         </state>
       </provider>
