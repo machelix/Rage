@@ -155,7 +155,7 @@
                                           map: map,
                                           icon: image,
                                           twitter_handle: val.name,
-                                          title: val.text,
+                                          title: val.ts + " : " + val.text,
                                           tweet_ts: val.ts,
                                           position: new google.maps.LatLng(tweet_lat,tweet_long)
                                       });
@@ -163,7 +163,7 @@
 
                                       google.maps.event.addListener(tweet_marker,'click', function(){
                                           var infowindow = new google.maps.InfoWindow({
-                                              content:  val.name +  " : "  + val.text
+                                              content:  val.ts + " : " + val.text
                                           });
                                           infowindow.open(map,tweet_marker);
                                       });
