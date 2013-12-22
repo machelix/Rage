@@ -147,7 +147,7 @@
                                          tweet_lat = val.loc[0]
                                          tweet_long = val.loc[1] }
 
-                                      console.log('lat ' + tweet_lat + ' long ' + tweet_long);
+                                      //console.log('lat ' + tweet_lat + ' long ' + tweet_long);
 
                                       // Create a marker for each tweet location
                                       var image = '<%= asset_path 'tweet_16_black.png' %>'
@@ -160,17 +160,17 @@
                                           position: new google.maps.LatLng(tweet_lat,tweet_long)
                                       });
 
-
                                       google.maps.event.addListener(tweet_marker,'click', function(){
                                           var infowindow = new google.maps.InfoWindow({
-                                              content:  val.ts + " : " + val.text
+                                              content: val.name + " : " + val.ts + " : " + val.text
                                           });
                                           infowindow.open(map,tweet_marker);
                                       });
                                       tweet_locations.push(tweet_marker);
                                   });
-                                  //$('body').append('<div id="tweets">');
-                                  //alert($('#tweets').attr('id'));
+                                  $('<div id="tweets">').appendTo('body');
+                                  console.log($('#tweets').attr('style'));
+                                  $('#tweets').html( "<span>Hello <b>Again</b></span>" );
                                   //tweet_locations.setMap(map);
                               },
                               error: function() {
