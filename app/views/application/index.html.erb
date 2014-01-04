@@ -4,11 +4,29 @@
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
   <meta charset="utf-8">
   <style>
-      html, body, #map-canvas {
+      html, body {
           height: 100%;
+          width: 100%;
           margin: 0px;
           padding: 0px
       }
+
+      #map-canvas {
+          height: 100%;
+          width: 80%;
+          margin: 0px;
+          padding: 0px;
+          float: left;
+      }
+
+      #map-filter {
+          height: 100%;
+          width: 20%;
+          margin: 0px;
+          padding: 0px;
+          float: left;
+      }
+
       .controls {
           margin-top: 16px;
           border: 1px solid transparent;
@@ -113,22 +131,17 @@
 
                   google.maps.event.addListener(marker, 'click', function(event) {
 
-
                       var myCity = new google.maps.Circle({
                           center: marker.position,
                           radius: 200,
-                          //strokeColor:"#0000FF",
                           strokeOpacity:0.8,
                           strokeWeight:2,
-                          //fillColor:"#0000FF",
                           fillOpacity:0.4
                       });
 
                       myCity.setMap(map);
 
                       google.maps.event.addListener(marker,'click', function(event) {
-                          //alert(marker.getPosition().lat());
-                          //alert(marker.getPosition().lng());
                           $.ajax({
                               url: '/twitter',
                               type: 'POST',
@@ -146,8 +159,6 @@
                                       } else {
                                          tweet_lat = val.loc[0]
                                          tweet_long = val.loc[1] }
-
-                                      //console.log('lat ' + tweet_lat + ' long ' + tweet_long);
 
                                       // Create a marker for each tweet location
                                       var image = '<%= asset_path 'tweet_16_black.png' %>'
@@ -168,9 +179,18 @@
                                       });
                                       tweet_locations.push(tweet_marker);
                                   });
-                                  $('<div id="tweets">').appendTo('body');
-                                  console.log($('#tweets').attr('style'));
-                                  $('#tweets').html( "<span>Hello <b>Again</b></span>" );
+
+                                  //$('#map-canvas').css({width: '80%'});
+                                  //$('<div id="tweets">').css({ float: 'right', width : '20%', height : '100%'}).appendTo('body');
+                                  $('#map-filter').append('<h2>Tweets</h2>');
+                                  $("#map-filter").append('<dl id="tweet">');
+
+                                  // fill side box with tweets
+                                  jQuery.each(data, function(i, val) {
+                                      $('#tweet').append($('<dt>').html(val.name));
+                                      $('#tweet').append($('<dd>').html(val.text));
+                                  });
+
                                   //tweet_locations.setMap(map);
                               },
                               error: function() {
@@ -226,14 +246,10 @@
       }
 
   </script>
-  <style>
-      #target {
-          width: 345px;
-      }
-  </style>
 </head>
 <body>
 <input id="pac-input" class="controls" type="text" placeholder="Search Box">
 <div id="map-canvas"></div>
+<div id="map-filter"></div>
 </body>
 </html>
