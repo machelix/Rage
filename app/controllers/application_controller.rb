@@ -31,7 +31,7 @@ class ApplicationController < ActionController::Base
     tweet_point = "#{params[:lat]}," + "#{params[:lng]}," + "#{params[:radius]}"
     current_ts = Time.now.strftime("%Y-%m-%d")
 
-    @tweets = @client.search('', { geocode: tweet_point, result_type: "recent" , count: 100, since: '2014-01-03'} )
+    @tweets = @client.search('', { geocode: tweet_point, result_type: "recent" , count: 100, since: current_ts} )
 
     api_response = {}
     @tweets.collect do |tweet|
