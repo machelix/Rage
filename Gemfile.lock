@@ -62,7 +62,6 @@ GEM
     extlib (0.9.16)
     faraday (0.8.8)
       multipart-post (~> 1.2.0)
-    gmaps4rails (2.1.1)
     gon (4.1.1)
       actionpack (>= 2.3.0)
       json
@@ -184,7 +183,6 @@ PLATFORMS
 
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
-  gmaps4rails
   gon
   google-api-client (= 0.6.4)
   jbuilder (~> 1.2)

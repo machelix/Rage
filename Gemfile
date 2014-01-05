@@ -6,14 +6,14 @@ gem 'rails', '4.0.0'
 gem 'twitter'
 gem 'google-api-client',  '0.6.4'
 gem 'gon'
-gem 'gmaps4rails'
+#gem 'gmaps4rails'
 
 # Use sqlite3 as the database for Active Record
 #gem 'sqlite3', :group => [:development, :test]
 
 gem 'rails_log_stdout',           github: 'heroku/rails_log_stdout'
 gem 'rails3_serve_static_assets', github: 'heroku/rails3_serve_static_assets'
-gem 'rails_12factor'
+gem 'rails_12factor', group: :production
 
 group :production do
   gem 'thin'
