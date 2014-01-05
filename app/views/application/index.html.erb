@@ -11,20 +11,31 @@
           padding: 0px
       }
 
+      #navbar {
+          height: 5%;
+          width: 100%;
+          margin: 0px;
+          padding: 0px;
+          float: left;
+          background-color: steelblue;
+      }
+
       #map-canvas {
-          height: 100%;
+          height: 95%;
           width: 80%;
           margin: 0px;
           padding: 0px;
           float: left;
       }
 
-      #map-filter {
-          height: 100%;
+      #sidebar {
+          height: 95%;
           width: 20%;
           margin: 0px;
           padding: 0px;
           float: left;
+          background-color: lightblue;
+          overflow:scroll;
       }
 
       .controls {
@@ -38,7 +49,7 @@
           box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3);
       }
 
-      #pac-input {
+      #search-box {
           background-color: #fff;
           padding: 0 11px 0 13px;
           width: 400px;
@@ -48,7 +59,7 @@
           text-overflow: ellipsis;
       }
 
-      #pac-input:focus {
+      #search-box:focus {
           border-color: #4d90fe;
           margin-left: -1px;
           padding-left: 14px;  /* Regular padding-left + 1. */
@@ -72,7 +83,6 @@
       }
 
   </style>
-  <title>Places search box</title>
   <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places&key=AIzaSyCFfsKnB4D-tWvTK0Y3DXAYwnlkbdg8CWg"></script>
   <script>
       // This example adds a search box to a map, using the Google Place Autocomplete
@@ -83,7 +93,7 @@
 
           var markers = [];
           var map = new google.maps.Map(document.getElementById('map-canvas'), {
-              mapTypeId: google.maps.MapTypeId.ROADMAP
+              mapTypeId: google.maps.MapTypeId.SATELLITE
           });
 
           var defaultBounds = new google.maps.LatLngBounds(
@@ -91,9 +101,21 @@
                   new google.maps.LatLng(-33.8474, 151.2631));
           map.fitBounds(defaultBounds);
 
+          var mgr = new MarkerClusterer(map);
+
+          google.maps.event.addListener(map, 'rightclick', function(event) {
+              var image = '<%= asset_path 'blue-pushpin.png' %>'
+
+              marker = addMarkerWatch(map, mgr, image, event.latLng, "Target Location");
+
+              google.maps.event.addListener(marker,'click', function(event) {
+                  getTweets(map, event.latLng.lat(), event.latLng.lng());
+              });
+          });
+
           // Create the search box and link it to the UI element.
           var input = /** @type {HTMLInputElement} */(
-                  document.getElementById('pac-input'));
+                  document.getElementById('search-box'));
           map.controls[google.maps.ControlPosition.TOP_LEFT].push(input);
 
           var searchBox = new google.maps.places.SearchBox(
@@ -122,82 +144,27 @@
                   };
 
                   // Create a marker for each place.
-                  var marker = new google.maps.Marker({
-                      map: map,
-                      icon: image,
-                      title: place.name,
-                      position: place.geometry.location
-                  });
+                  marker = addMarkerWatch(map, mgr, image, place.geometry.location, place.name );
 
                   google.maps.event.addListener(marker, 'click', function(event) {
 
                       var myCity = new google.maps.Circle({
                           center: marker.position,
-                          radius: 200,
+                          radius: 500,
                           strokeOpacity:0.8,
                           strokeWeight:2,
-                          fillOpacity:0.4
+                          fillOpacity:0.4,
+                          editable: true
                       });
 
                       myCity.setMap(map);
 
-                      google.maps.event.addListener(marker,'click', function(event) {
-                          $.ajax({
-                              url: '/twitter',
-                              type: 'POST',
-                              dataType: "json",
-                              async: false,
-                              data: { lat: marker.getPosition().lat(), lng: marker.getPosition().lng() },
-                              success: function(data) {
-                                  tweet_locations = [];
-                                  jQuery.each(data, function(i, val) {
+                      google.maps.event.addListener(myCity,'radius_changed', function(event) {
+                          getTweets(map, marker.getPosition().lat(), marker.getPosition().lng(), myCity.getRadius());
+                      });
 
-                                      if (val.loc == null) {
-                                        var latlong = calculateLatLong(marker.getPosition().lat(),marker.getPosition().lng())
-                                        tweet_lat = latlong[0]
-                                        tweet_long = latlong[1]
-                                      } else {
-                                         tweet_lat = val.loc[0]
-                                         tweet_long = val.loc[1] }
-
-                                      // Create a marker for each tweet location
-                                      var image = '<%= asset_path 'tweet_16_black.png' %>'
-                                      var tweet_marker = new google.maps.Marker({
-                                          map: map,
-                                          icon: image,
-                                          twitter_handle: val.name,
-                                          title: val.ts + " : " + val.text,
-                                          tweet_ts: val.ts,
-                                          position: new google.maps.LatLng(tweet_lat,tweet_long)
-                                      });
-
-                                      google.maps.event.addListener(tweet_marker,'click', function(){
-                                          var infowindow = new google.maps.InfoWindow({
-                                              content: val.name + " : " + val.ts + " : " + val.text
-                                          });
-                                          infowindow.open(map,tweet_marker);
-                                      });
-                                      tweet_locations.push(tweet_marker);
-                                  });
-
-                                  //$('#map-canvas').css({width: '80%'});
-                                  //$('<div id="tweets">').css({ float: 'right', width : '20%', height : '100%'}).appendTo('body');
-                                  $('#map-filter').append('<h2>Tweets</h2>');
-                                  $("#map-filter").append('<dl id="tweet">');
-
-                                  // fill side box with tweets
-                                  jQuery.each(data, function(i, val) {
-                                      $('#tweet').append($('<dt>').html(val.name));
-                                      $('#tweet').append($('<dd>').html(val.text));
-                                  });
-
-                                  //tweet_locations.setMap(map);
-                              },
-                              error: function() {
-                              }
-                          });
-
-
+                      google.maps.event.addListener(myCity,'click', function(event) {
+                            getTweets(map, marker.getPosition().lat(), marker.getPosition().lng());
                       });
                   });
 
@@ -222,6 +189,79 @@
       }
 
       google.maps.event.addDomListener(window, 'load', initialize);
+
+      function addMarkerWatch(map, mgr, image, position, title)
+      {
+          if (mgr.getTotalMarkers() == 0) {
+              marker = new google.maps.Marker({ position: position, map: map, title: title, icon: image });
+              mgr.addMarker(marker);
+          } else {
+              mgr.removeMarkers(mgr.getMarkers());
+              marker = new google.maps.Marker({ position: position, map: map, title: title, icon: image  });
+              mgr.addMarker(marker);
+          }
+          return marker;
+      }
+      function getTweets(map,lat,long,radius)
+      {
+          if(typeof(radius)==='undefined') { radius = '0.5km'
+          } else {
+              radius = radius / 1000 +  "km"
+          }
+
+          $.ajax({
+              url: '/twitter',
+              type: 'POST',
+              dataType: "json",
+              async: false,
+              data: { lat: lat, lng: long, radius: radius },
+              success: function(data) {
+                  tweet_locations = [];
+                  jQuery.each(data, function(i, val) {
+
+                      if (val.loc == null) {
+                          var latlong = calculateLatLong(lat,long)
+                          tweet_lat = latlong[0]
+                          tweet_long = latlong[1]
+                      } else {
+                          tweet_lat = val.loc[0]
+                          tweet_long = val.loc[1] }
+
+                      // Create a marker for each tweet location
+                      var image = '<%= asset_path 'tweet_16_black.png' %>'
+                      var tweet_marker = new google.maps.Marker({
+                          map: map,
+                          icon: image,
+                          twitter_handle: val.name,
+                          title: val.ts + " : " + val.text,
+                          tweet_ts: val.ts,
+                          position: new google.maps.LatLng(tweet_lat,tweet_long)
+                      });
+
+                      google.maps.event.addListener(tweet_marker,'click', function(){
+                          var infowindow = new google.maps.InfoWindow({
+                              content: val.name + " : " + val.ts + " : " + val.text
+                          });
+                          infowindow.open(map,tweet_marker);
+                      });
+                      tweet_locations.push(tweet_marker);
+                  });
+
+                  $('#sidebar').append('<h2>Tweets</h2>');
+                  $("#sidebar").append('<dl id="tweet">');
+
+                  // fill side box with tweets
+                  jQuery.each(data, function(i, val) {
+                      $('#tweet').append($('<dt>').html('http://twitter.com/' + val.name));
+                      $('#tweet').append($('<dd>').html(val.text));
+                  });
+
+              },
+              error: function() {
+              }
+          });
+      }
+
 
       function calculateLatLong(lat,lon)
       {
@@ -248,8 +288,9 @@
   </script>
 </head>
 <body>
-<input id="pac-input" class="controls" type="text" placeholder="Search Box">
+<input id="search-box" class="controls" type="text" placeholder="enter the location address">
+<div id="navbar"></div>
 <div id="map-canvas"></div>
-<div id="map-filter"></div>
+<div id="sidebar"></div>
 </body>
 </html>
