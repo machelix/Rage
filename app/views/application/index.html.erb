@@ -4,37 +4,39 @@
   <meta name="viewport" content="initial-scale=1.0, user-scalable=no">
   <meta charset="utf-8">
   <style>
-      html, body {
+      html, body, #map-canvas {
           height: 100%;
           width: 100%;
           margin: 0px;
           padding: 0px
       }
 
-      #navbar {
-          height: 5%;
-          width: 100%;
-          margin: 0px;
-          padding: 0px;
-          float: left;
-          background-color: steelblue;
-      }
-
-      #map-canvas {
-          height: 95%;
-          width: 80%;
-          margin: 0px;
-          padding: 0px;
-          float: left;
-      }
-
       #sidebar {
-          height: 95%;
+          height: 100%;
           width: 20%;
           margin: 0px;
           padding: 0px;
           float: left;
-          background-color: lightblue;
+          background-color: #00acee;
+      }
+
+      #sidebar-title {
+          height: 10%;
+          width: 100%;
+          padding: 10px;
+          text-align: center;
+          vertical-align: middle;
+          font-weight:bold;
+          font-style:italic;
+          font-size:30px;
+          font-family:"Times New Roman", Times, serif;
+          border: 1px solid black;
+      }
+
+      #sidebar-contents {
+          height: 90%;
+          width: 100%;
+          border: 1px solid black;
           overflow:scroll;
       }
 
@@ -81,6 +83,8 @@
           font-size: 13px;
           font-weight: 300;
       }
+
+
 
   </style>
   <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places&key=AIzaSyCFfsKnB4D-tWvTK0Y3DXAYwnlkbdg8CWg"></script>
@@ -202,7 +206,8 @@
           }
           return marker;
       }
-      function getTweets(map,lat,long,radius)
+
+      function getTweets(map,lat,long,radius,topic)
       {
           if(typeof(radius)==='undefined') { radius = '0.5km'
           } else {
@@ -214,7 +219,7 @@
               type: 'POST',
               dataType: "json",
               async: false,
-              data: { lat: lat, lng: long, radius: radius },
+              data: { lat: lat, lng: long, radius: radius, topic: topic },
               success: function(data) {
                   tweet_locations = [];
                   jQuery.each(data, function(i, val) {
@@ -247,13 +252,22 @@
                       tweet_locations.push(tweet_marker);
                   });
 
-                  $('#sidebar').append('<h2>Tweets</h2>');
-                  $("#sidebar").append('<dl id="tweet">');
+                  // create tweet div if does not exists
+                  if ($("#sidebar").length == 0){
+                      $("#map-canvas").css({width: '80%', float: 'left'});
+                      $('<div id="sidebar">').appendTo('body');
+                      $('#sidebar').append('<div id="sidebar-title">');
+                      $('#sidebar-title').html("Query Results");
+                  }
+
+                  if ($("#sidebar").length > 0 && $("#sidebar-contents").length == 0){
+                      $('#sidebar').append('<div id="sidebar-contents">');
+                  }
 
                   // fill side box with tweets
                   jQuery.each(data, function(i, val) {
-                      $('#tweet').append($('<dt>').html('http://twitter.com/' + val.name));
-                      $('#tweet').append($('<dd>').html(val.text));
+                      $('#sidebar-contents').append($('<dt>').html('http://twitter.com/' + val.name));
+                      $('#sidebar-contents').append($('<dd>').html(val.text));
                   });
 
               },
@@ -284,13 +298,11 @@
 
           return [latO.toFixed(8), lonO.toFixed(8)];
       }
-
   </script>
 </head>
 <body>
 <input id="search-box" class="controls" type="text" placeholder="enter the location address">
-<div id="navbar"></div>
 <div id="map-canvas"></div>
-<div id="sidebar"></div>
+</div>
 </body>
 </html>
