@@ -113,7 +113,26 @@
               marker = addMarkerWatch(map, mgr, image, event.latLng, "Target Location");
 
               google.maps.event.addListener(marker,'click', function(event) {
-                  getTweets(map, event.latLng.lat(), event.latLng.lng());
+
+                  var myArea = new google.maps.Circle({
+                      center: marker.position,
+                      radius: 500,
+                      strokeOpacity:0.8,
+                      strokeWeight:2,
+                      fillOpacity:0.4,
+                      editable: true
+                  });
+
+                  myArea.setMap(map);
+
+                  google.maps.event.addListener(myArea,'radius_changed', function(event) {
+                      getTweets(map, marker.getPosition().lat(), marker.getPosition().lng(), myArea.getRadius());
+                  });
+
+                  google.maps.event.addListener(myArea,'click', function(event) {
+                      getTweets(map, marker.getPosition().lat(), marker.getPosition().lng());
+                  });
+                  //getTweets(map, event.latLng.lat(), event.latLng.lng());
               });
           });
 
