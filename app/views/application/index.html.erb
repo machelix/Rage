@@ -106,6 +106,7 @@
           map.fitBounds(defaultBounds);
 
           var mgr = new MarkerClusterer(map);
+          var tweet_mgr = new MarkerClusterer(map);
 
           google.maps.event.addListener(map, 'rightclick', function(event) {
               var image = '<%= asset_path 'blue-pushpin.png' %>'
@@ -126,13 +127,12 @@
                   myArea.setMap(map);
 
                   google.maps.event.addListener(myArea,'radius_changed', function(event) {
-                      getTweets(map, marker.getPosition().lat(), marker.getPosition().lng(), myArea.getRadius());
+                      getTweets(map, tweet_mgr, marker.getPosition().lat(), marker.getPosition().lng(), myArea.getRadius());
                   });
 
                   google.maps.event.addListener(myArea,'click', function(event) {
-                      getTweets(map, marker.getPosition().lat(), marker.getPosition().lng());
+                      getTweets(map, tweet_mgr, marker.getPosition().lat(), marker.getPosition().lng());
                   });
-                  //getTweets(map, event.latLng.lat(), event.latLng.lng());
               });
           });
 
@@ -226,7 +226,7 @@
           return marker;
       }
 
-      function getTweets(map,lat,long,radius,topic)
+      function getTweets(map,tweet_mgr,lat,long,radius,topic)
       {
           if(typeof(radius)==='undefined') { radius = '0.5km'
           } else {
@@ -241,6 +241,18 @@
               data: { lat: lat, lng: long, radius: radius, topic: topic },
               success: function(data) {
                   tweet_locations = [];
+                  console.log(tweet_mgr.getTotalMarkers());
+                  if (tweet_mgr.getTotalMarkers() > 0) {
+                      markersArray = tweet_mgr.getMarkers();
+                      console.log(markersArray.length);
+                      tweet_mgr.removeMarkers(markersArray);
+                      for (var i = 0; i < markersArray.length; i++ ) {
+                          markersArray[i].setMap(null);
+                      }
+                      console.log('deleted: ' + tweet_mgr.getTotalMarkers());
+                      console.log(markersArray.length);
+                  }
+
                   jQuery.each(data, function(i, val) {
 
                       if (val.loc == null) {
@@ -261,6 +273,8 @@
                           tweet_ts: val.ts,
                           position: new google.maps.LatLng(tweet_lat,tweet_long)
                       });
+
+                      tweet_mgr.addMarker(tweet_marker);
 
                       google.maps.event.addListener(tweet_marker,'click', function(){
                           var infowindow = new google.maps.InfoWindow({
