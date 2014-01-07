@@ -297,12 +297,17 @@
                       $('#sidebar').append('<div id="sidebar-contents">');
                   }
 
+
+                  if ( $('#sidebar-contents').children().length > 0 ) {
+                      // remove old contents
+                      $('#sidebar-contents').children().remove();
+                  }
+
                   // fill side box with tweets
                   jQuery.each(data, function(i, val) {
-                      $('#sidebar-contents').append($('<dt>').html('http://twitter.com/' + val.name));
-                      $('#sidebar-contents').append($('<dd>').html(val.text));
+                          $('#sidebar-contents').append($('<dt>').html('http://twitter.com/' + val.name));
+                          $('#sidebar-contents').append($('<dd>').html(val.text));
                   });
-
               },
               error: function() {
               }
