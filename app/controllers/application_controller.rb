@@ -36,7 +36,7 @@ class ApplicationController < ActionController::Base
     api_response = {}
     @tweets.collect do |tweet|
       (tweet.geo.coordinates.class == Twitter::NullObject) ? nil : tweet.geo.coordinates
-      api_response.merge!("#{tweet.id}" => { "name" => "#{tweet.user.screen_name}", "text" => "#{tweet.text}",
+      api_response.merge!("#{tweet.id}" => { "name" => "#{tweet.user.name}", "handle" => "#{tweet.user.screen_name}", "text" => "#{tweet.text}",
                           "ts" => "#{tweet.created_at}" , "loc" => (tweet.geo.coordinates.class == Twitter::NullObject) ? nil : tweet.geo.coordinates})
     end
 

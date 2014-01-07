@@ -36,6 +36,7 @@
       #sidebar-contents {
           height: 90%;
           width: 100%;
+          padding: 0px;
           border: 1px solid black;
           overflow:scroll;
       }
@@ -268,7 +269,7 @@
                       var tweet_marker = new google.maps.Marker({
                           map: map,
                           icon: image,
-                          twitter_handle: val.name,
+                          twitter_handle: val.handle,
                           title: val.ts + " : " + val.text,
                           tweet_ts: val.ts,
                           position: new google.maps.LatLng(tweet_lat,tweet_long)
@@ -305,7 +306,7 @@
 
                   // fill side box with tweets
                   jQuery.each(data, function(i, val) {
-                          $('#sidebar-contents').append($('<dt>').html('http://twitter.com/' + val.name));
+                          $('#sidebar-contents').append($('<dt>').html('http://twitter.com/' + val.handle));
                           $('#sidebar-contents').append($('<dd>').html(val.text));
                   });
               },
