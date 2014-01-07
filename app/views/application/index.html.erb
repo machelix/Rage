@@ -106,7 +106,6 @@
           map.fitBounds(defaultBounds);
 
           var mgr = new MarkerClusterer(map);
-          var tweet_mgr = new MarkerClusterer(map);
 
           google.maps.event.addListener(map, 'rightclick', function(event) {
               var image = '<%= asset_path 'blue-pushpin.png' %>'
@@ -127,11 +126,11 @@
                   myArea.setMap(map);
 
                   google.maps.event.addListener(myArea,'radius_changed', function(event) {
-                      getTweets(map, tweet_mgr, marker.getPosition().lat(), marker.getPosition().lng(), myArea.getRadius());
+                      getTweets(map, mgr, marker.getPosition().lat(), marker.getPosition().lng(), myArea.getRadius());
                   });
 
                   google.maps.event.addListener(myArea,'click', function(event) {
-                      getTweets(map, tweet_mgr, marker.getPosition().lat(), marker.getPosition().lng());
+                      getTweets(map, mgr, marker.getPosition().lat(), marker.getPosition().lng());
                   });
               });
           });
@@ -183,11 +182,11 @@
                       myCity.setMap(map);
 
                       google.maps.event.addListener(myCity,'radius_changed', function(event) {
-                          getTweets(map, marker.getPosition().lat(), marker.getPosition().lng(), myCity.getRadius());
+                          getTweets(map, mgr, marker.getPosition().lat(), marker.getPosition().lng(), myCity.getRadius());
                       });
 
                       google.maps.event.addListener(myCity,'click', function(event) {
-                            getTweets(map, marker.getPosition().lat(), marker.getPosition().lng());
+                            getTweets(map, mgr, marker.getPosition().lat(), marker.getPosition().lng());
                       });
                   });
 
@@ -241,17 +240,18 @@
               data: { lat: lat, lng: long, radius: radius, topic: topic },
               success: function(data) {
                   tweet_locations = [];
-                  console.log(tweet_mgr.getTotalMarkers());
-                  if (tweet_mgr.getTotalMarkers() > 0) {
-                      markersArray = tweet_mgr.getMarkers();
-                      console.log(markersArray.length);
-                      tweet_mgr.removeMarkers(markersArray);
-                      for (var i = 0; i < markersArray.length; i++ ) {
-                          markersArray[i].setMap(null);
-                      }
-                      console.log('deleted: ' + tweet_mgr.getTotalMarkers());
-                      console.log(markersArray.length);
-                  }
+
+                  //console.log(tweet_mgr.getTotalMarkers());
+                  //if (tweet_mgr.getTotalMarkers() > 0) {
+                  //    markersArray = tweet_mgr.getMarkers();
+                  //    console.log(markersArray.length);
+                  //    tweet_mgr.removeMarkers(markersArray);
+                  //    for (var i = 0; i < markersArray.length; i++ ) {
+                  //        markersArray[i].setMap(null);
+                  //    }
+                  //    console.log('deleted: ' + tweet_mgr.getTotalMarkers());
+                  //    console.log(markersArray.length);
+                  //}
 
                   jQuery.each(data, function(i, val) {
 
@@ -274,7 +274,7 @@
                           position: new google.maps.LatLng(tweet_lat,tweet_long)
                       });
 
-                      tweet_mgr.addMarker(tweet_marker);
+                      //tweet_mgr.addMarker(tweet_marker);
 
                       google.maps.event.addListener(tweet_marker,'click', function(){
                           var infowindow = new google.maps.InfoWindow({
