@@ -2,24 +2,27 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/application/index.html.erb" afterPath="$PROJECT_DIR$/app/views/application/index.html.erb" />
     </list>
     <ignored path="rage.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Gemfile" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1388920924192" ignored="false" />
-    <file path="/application_controller.rb" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1389131347342" ignored="false" />
+    <file path="/application_controller.rb" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1389295254726" ignored="false" />
     <file path="/routes.rb" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1389128931780" ignored="false" />
-    <file path="/index.html.erb" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1389294363125" ignored="false" />
+    <file path="/index.html.erb" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1389296623304" ignored="false" />
     <file path="/youtube.html.erb" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1385415534295" ignored="false" />
     <file path="$USER_HOME$/rails_projects/sample_app/config/routes.rb" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1385669223084" ignored="false" />
     <file path="/application.html.erb" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1387669193758" ignored="false" />
     <file path="/application.js" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1387054978193" ignored="false" />
     <file path="/twitter.html.erb" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1387117696761" ignored="false" />
-    <file path="/Dummy.txt" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1389292991406" ignored="false" />
+    <file path="/Dummy.txt" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1389292991432" ignored="false" />
     <file path="/database.yml" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1387665475508" ignored="false" />
     <file path="/production.rb" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1388920964603" ignored="false" />
     <file path="/utils.rb" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1387724951752" ignored="false" />
     <file path="/development.rb" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1387727270151" ignored="false" />
+    <file path="/search.rb" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1389295318914" ignored="false" />
+    <file path="$USER_HOME$/.rvm/gems/ruby-2.0.0-p247/gems/twitter-5.3.0/lib/twitter/rest/api/search.rb" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1389295335795" ignored="false" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,7 +45,7 @@
       <file leaf-file-name="index.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/application/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="327" column="135" selection-start="11899" selection-end="11899" vertical-scroll-proportion="0.7165109">
+            <state line="329" column="42" selection-start="11968" selection-end="11968" vertical-scroll-proportion="0.7866185">
               <folding />
             </state>
           </provider>
@@ -142,6 +145,8 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="Scope" />
+      <pane id="RailsProjectView" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -252,8 +257,6 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="RailsProjectView" />
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -544,11 +547,11 @@
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22285251" sideWeight="0.62459546" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22285251" sideWeight="0.6237785" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32899022" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.37540454" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3762215" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -677,7 +680,9 @@
     </entry>
     <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.0.0-p247/gems/twitter-5.3.0/lib/twitter/rest/api/search.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="29" column="12" selection-start="2910" selection-end="2910" vertical-scroll-proportion="0.5301205" />
+        <state line="29" column="12" selection-start="2910" selection-end="2910" vertical-scroll-proportion="0.5301205">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.0.0-p247/gems/google-api-client-0.6.4/lib/google/api_client.rb">
@@ -694,21 +699,21 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="80" column="9" selection-start="2973" selection-end="2973" vertical-scroll-proportion="0.5294118">
+        <state line="74" column="33" selection-start="2761" selection-end="2761" vertical-scroll-proportion="0.3864818">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/config/routes.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="55" selection-start="376" selection-end="376" vertical-scroll-proportion="0.02538071">
+        <state line="7" column="55" selection-start="376" selection-end="376" vertical-scroll-proportion="0.025423728">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/application/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="327" column="135" selection-start="11899" selection-end="11899" vertical-scroll-proportion="0.7165109">
+        <state line="329" column="42" selection-start="11968" selection-end="11968" vertical-scroll-proportion="0.7866185">
           <folding />
         </state>
       </provider>
