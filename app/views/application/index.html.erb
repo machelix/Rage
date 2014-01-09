@@ -132,6 +132,7 @@
 
                   google.maps.event.addListener(myArea,'click', function(event) {
                       getTweets(map, mgr, marker.getPosition().lat(), marker.getPosition().lng());
+                      //getYoutubes(map, mgr, marker.getPosition().lat(), marker.getPosition().lng());
                   });
               });
           });
@@ -226,6 +227,24 @@
           return marker;
       }
 
+      function getYoutubes(map,youtube_mgr,lat,long,radius,topic)
+      {
+          if(typeof(radius)==='undefined') { radius = '0.5km'
+          } else {
+          radius = radius / 1000 +  "km"
+          }
+
+          $.ajax({
+              url: '/youtube',
+              type: 'POST',
+              dataType: "json",
+              async: false,
+              data: { lat: lat, lng: long, radius: radius, topic: topic },
+              success: function(data) {},
+              error: function() {}
+          });
+      }
+
       function getTweets(map,tweet_mgr,lat,long,radius,topic)
       {
           if(typeof(radius)==='undefined') { radius = '0.5km'
@@ -306,7 +325,7 @@
 
                   // fill side box with tweets
                   jQuery.each(data, function(i, val) {
-                          $('#sidebar-contents').append($('<dt>').html('http://twitter.com/' + val.handle));
+                          $('#sidebar-contents').append($('<dt>').html('<a href="http://twitter.com/' + val.handle + '">' + val.name + '</a>'));
                           $('#sidebar-contents').append($('<dd>').html(val.text));
                   });
               },

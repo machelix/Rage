@@ -12,9 +12,7 @@ class ApplicationController < ActionController::Base
 
 
   def index
-    #@radius = 200
-    #gon.token = @client.token.to_s
-    #puts @client.search('AAP').to_hash.inspect
+
   end
 
   def twitter
@@ -63,8 +61,8 @@ class ApplicationController < ActionController::Base
     @youtube = @client.discovered_api(youtube_api_service_name, youtube_api_version)
 
     # Initialize OAuth 2.0 client
-    @client.authorization.client_id = '825232626336-jcicc79mkn35kvj1arpbc1ce5ogmsukk.apps.googleusercontent.com'
-    @client.authorization.client_secret = 'Pkqih1-xIhGP1C7AFXiur1uR'
+    @client.authorization.client_id = '825232626336-ktufk4ivq970ls2h06v2h2jgui4hafbv.apps.googleusercontent.com'
+    @client.authorization.client_secret = 'QEXEHnvzP9jrWj7UAIdHJ1bN'
     @client.authorization.redirect_uri = 'https://localhost/oauth2callback'
     @client.authorization.scope = youtube_readonly_scope
     @client.authorization.refresh_token = true
@@ -80,11 +78,16 @@ class ApplicationController < ActionController::Base
     #@client.authorization = auth_util.authorize()
 
     # Make an API call
-    @result = @client.execute(
+    puts @result = @client.execute(
         :api_method => @youtube.activities.list,
         :parameters => {      :part => 'snippet',
                               :maxResults => 50
         }
     )
+    unless result.response.status == 401
+      p "#{JSON.parse(result.body)}"
+    else
+      redirect "/oauth2authorize"
+    end
   end
 end
