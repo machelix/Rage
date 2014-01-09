@@ -325,7 +325,7 @@
 
                   // fill side box with tweets
                   jQuery.each(data, function(i, val) {
-                          $('#sidebar-contents').append($('<dt>').html('<a href="http://twitter.com/' + val.handle + '">' + val.name + '</a>'));
+                          $('#sidebar-contents').append($('<dt>').html('<a href="http://twitter.com/' + val.handle + '" target="_blank">' + val.name + '</a>'));
                           $('#sidebar-contents').append($('<dd>').html(val.text));
                   });
               },
