@@ -2,12 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/application/index.html.erb" afterPath="$PROJECT_DIR$/app/views/application/index.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" />
     </list>
     <ignored path="rage.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Gemfile" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1388920924192" ignored="false" />
-    <file path="/application_controller.rb" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1389295254692" ignored="false" />
+    <file path="/application_controller.rb" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1389533598944" ignored="false" />
     <file path="/routes.rb" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1389128931780" ignored="false" />
     <file path="/index.html.erb" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1389530772436" ignored="false" />
     <file path="/youtube.html.erb" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1385415534295" ignored="false" />
@@ -40,10 +40,10 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="index.html.erb" pinned="false" current="true" current-in-tab="true">
+      <file leaf-file-name="index.html.erb" pinned="false" current="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/views/application/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="330" column="78" selection-start="12098" selection-end="12117" vertical-scroll-proportion="0.1955836">
+            <state line="330" column="78" selection-start="12098" selection-end="12117" vertical-scroll-proportion="-2.5833333">
               <folding>
                 <marker date="1389530799000" expanded="true" signature="12104:12117" placeholder="..." />
                 <marker date="1389530799000" expanded="true" signature="12104:12124" placeholder="..." />
@@ -54,10 +54,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="application_controller.rb" pinned="false" current="false" current-in-tab="false">
+      <file leaf-file-name="application_controller.rb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="31" column="24" selection-start="1035" selection-end="1035" vertical-scroll-proportion="0.0">
+            <state line="40" column="151" selection-start="1681" selection-end="1681" vertical-scroll-proportion="0.5718475">
               <folding />
             </state>
           </provider>
@@ -92,11 +92,11 @@
         <option value="$PROJECT_DIR$/Gemfile" />
         <option value="$PROJECT_DIR$/config/environments/production.rb" />
         <option value="$PROJECT_DIR$/config/routes.rb" />
-        <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
         <option value="$USER_HOME$/.rvm/gems/ruby-2.0.0-p247/gems/twitter-5.3.0/lib/twitter/rest/api/search.rb" />
         <option value="$PROJECT_DIR$/app/assets/javascripts/application.js" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/app/views/application/index.html.erb" />
+        <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
       </list>
     </option>
   </component>
@@ -689,7 +689,9 @@
     </entry>
     <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.0.0-p247/gems/google-api-client-0.6.4/lib/google/api_client.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="8" selection-start="2942" selection-end="2942" vertical-scroll-proportion="0.3323442" />
+        <state line="72" column="8" selection-start="2942" selection-end="2942" vertical-scroll-proportion="0.3323442">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.0.0-p247/gems/signet-0.4.5/lib/signet/oauth_2/client.rb">
@@ -724,13 +726,6 @@
         <state line="15" column="18" selection-start="663" selection-end="663" vertical-scroll-proportion="0.63559324" />
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="31" column="24" selection-start="1035" selection-end="1035" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="5" column="79" selection-start="147" selection-end="223" vertical-scroll-proportion="0.23659305">
@@ -740,13 +735,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/application/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="330" column="78" selection-start="12098" selection-end="12117" vertical-scroll-proportion="0.1955836">
+        <state line="330" column="78" selection-start="12098" selection-end="12117" vertical-scroll-proportion="-2.5833333">
           <folding>
             <marker date="1389530799000" expanded="true" signature="12104:12117" placeholder="..." />
             <marker date="1389530799000" expanded="true" signature="12104:12124" placeholder="..." />
             <marker date="1389530799000" expanded="true" signature="12104:12127" placeholder="..." />
             <marker date="1389530799000" expanded="true" signature="12245:12268" placeholder="..." />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="40" column="151" selection-start="1681" selection-end="1681" vertical-scroll-proportion="0.5718475">
+          <folding />
         </state>
       </provider>
     </entry>

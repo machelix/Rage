@@ -33,6 +33,8 @@ class ApplicationController < ActionController::Base
 
     api_response = {}
     @tweets.collect do |tweet|
+      #move to next element if tweet is a retweet
+      next if tweet.retweeted_status.class != Twitter::NullObject
 
       (tweet.geo.coordinates.class == Twitter::NullObject) ? nil : tweet.geo.coordinates
       api_response.merge!("#{tweet.id}" => { "name" => "#{tweet.user.name}", "handle" => "#{tweet.user.screen_name}", "text" => "#{tweet.text}",
