@@ -3,14 +3,13 @@
   <component name="ChangeListManager">
     <list default="true" id="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/application/index.html.erb" afterPath="$PROJECT_DIR$/app/views/application/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="rage.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Gemfile" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1388920924192" ignored="false" />
     <file path="/application_controller.rb" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1389295254692" ignored="false" />
     <file path="/routes.rb" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1389128931780" ignored="false" />
-    <file path="/index.html.erb" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1389530360563" ignored="false" />
+    <file path="/index.html.erb" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1389530772436" ignored="false" />
     <file path="/youtube.html.erb" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1385415534295" ignored="false" />
     <file path="$USER_HOME$/rails_projects/sample_app/config/routes.rb" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1385669223084" ignored="false" />
     <file path="/application.html.erb" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1389449097103" ignored="false" />
@@ -44,12 +43,12 @@
       <file leaf-file-name="index.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/application/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="303" column="80" selection-start="10904" selection-end="10904" vertical-scroll-proportion="0.8044164">
+            <state line="330" column="78" selection-start="12098" selection-end="12117" vertical-scroll-proportion="0.1955836">
               <folding>
-                <marker date="1389530592000" expanded="true" signature="12104:12117" placeholder="..." />
-                <marker date="1389530592000" expanded="true" signature="12104:12124" placeholder="..." />
-                <marker date="1389530592000" expanded="true" signature="12104:12127" placeholder="..." />
-                <marker date="1389530592000" expanded="true" signature="12245:12268" placeholder="..." />
+                <marker date="1389530799000" expanded="true" signature="12104:12117" placeholder="..." />
+                <marker date="1389530799000" expanded="true" signature="12104:12124" placeholder="..." />
+                <marker date="1389530799000" expanded="true" signature="12104:12127" placeholder="..." />
+                <marker date="1389530799000" expanded="true" signature="12245:12268" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -741,12 +740,12 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/application/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="303" column="80" selection-start="10904" selection-end="10904" vertical-scroll-proportion="0.8044164">
+        <state line="330" column="78" selection-start="12098" selection-end="12117" vertical-scroll-proportion="0.1955836">
           <folding>
-            <marker date="1389530592000" expanded="true" signature="12104:12117" placeholder="..." />
-            <marker date="1389530592000" expanded="true" signature="12104:12124" placeholder="..." />
-            <marker date="1389530592000" expanded="true" signature="12104:12127" placeholder="..." />
-            <marker date="1389530592000" expanded="true" signature="12245:12268" placeholder="..." />
+            <marker date="1389530799000" expanded="true" signature="12104:12117" placeholder="..." />
+            <marker date="1389530799000" expanded="true" signature="12104:12124" placeholder="..." />
+            <marker date="1389530799000" expanded="true" signature="12104:12127" placeholder="..." />
+            <marker date="1389530799000" expanded="true" signature="12245:12268" placeholder="..." />
           </folding>
         </state>
       </provider>

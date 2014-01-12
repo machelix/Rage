@@ -331,7 +331,7 @@
                           $('#sidebar-contents').append($('<dt>').html('<div style="float: left; width: 50%"><a href="http://twitter.com/' + val.handle + '" target="_blank">' + val.name + '</a></div><div align="right" style="float: left; width: 50%">' + jQuery.timeago(val.ts) + '</div>'));
                           var re = /(https?:\/\/(([-\w\.]+)+(:\d+)?(\/([\w/_\.]*(\?\S+)?)?)?))/g;
                           var result =  (val.text).replace(re, "<a href=\"$1\" class=\"links\" target=\"_blank\" \">$1</a>");   //onmouseover=\"thumbnail(\'$1\')
-                          $('#sidebar-contents').append($('<dd>').html(result));
+                          $('#sidebar-contents').append($('<dd>').html('<div>' + result + '</div>'));
                   });
               },
               error: function() {
