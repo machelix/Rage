@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/layouts/application.html.erb" afterPath="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/application/index.html.erb" afterPath="$PROJECT_DIR$/app/views/application/index.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="rage.iws" />
@@ -10,13 +10,13 @@
     <file path="/Gemfile" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1388920924192" ignored="false" />
     <file path="/application_controller.rb" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1389295254692" ignored="false" />
     <file path="/routes.rb" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1389128931780" ignored="false" />
-    <file path="/index.html.erb" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1389446784179" ignored="false" />
+    <file path="/index.html.erb" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1389530360563" ignored="false" />
     <file path="/youtube.html.erb" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1385415534295" ignored="false" />
     <file path="$USER_HOME$/rails_projects/sample_app/config/routes.rb" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1385669223084" ignored="false" />
-    <file path="/application.html.erb" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1389447241398" ignored="false" />
-    <file path="/application.js" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1387054978193" ignored="false" />
+    <file path="/application.html.erb" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1389449097103" ignored="false" />
+    <file path="/application.js" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1389448763247" ignored="false" />
     <file path="/twitter.html.erb" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1387117696761" ignored="false" />
-    <file path="/Dummy.txt" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1389292991406" ignored="false" />
+    <file path="/Dummy.txt" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1389527269376" ignored="false" />
     <file path="/database.yml" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1387665475508" ignored="false" />
     <file path="/production.rb" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1388920964603" ignored="false" />
     <file path="/utils.rb" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1387724951752" ignored="false" />
@@ -44,8 +44,13 @@
       <file leaf-file-name="index.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/application/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="329" column="26" selection-start="12129" selection-end="12129" vertical-scroll-proportion="0.6309148">
-              <folding />
+            <state line="303" column="80" selection-start="10904" selection-end="10904" vertical-scroll-proportion="0.8044164">
+              <folding>
+                <marker date="1389530592000" expanded="true" signature="12104:12117" placeholder="..." />
+                <marker date="1389530592000" expanded="true" signature="12104:12124" placeholder="..." />
+                <marker date="1389530592000" expanded="true" signature="12104:12127" placeholder="..." />
+                <marker date="1389530592000" expanded="true" signature="12245:12268" placeholder="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -77,7 +82,6 @@
   <component name="IdeDocumentHistory">
     <option name="changedFiles">
       <list>
-        <option value="$PROJECT_DIR$/app/assets/javascripts/application.js" />
         <option value="$PROJECT_DIR$/app/views/application/youtube.html.erb" />
         <option value="$PROJECT_DIR$/app/views/application/twitter.html.erb" />
         <option value="$PROJECT_DIR$/config/database.yml" />
@@ -91,6 +95,7 @@
         <option value="$PROJECT_DIR$/config/routes.rb" />
         <option value="$PROJECT_DIR$/app/controllers/application_controller.rb" />
         <option value="$USER_HOME$/.rvm/gems/ruby-2.0.0-p247/gems/twitter-5.3.0/lib/twitter/rest/api/search.rb" />
+        <option value="$PROJECT_DIR$/app/assets/javascripts/application.js" />
         <option value="$PROJECT_DIR$/app/views/layouts/application.html.erb" />
         <option value="$PROJECT_DIR$/app/views/application/index.html.erb" />
       </list>
@@ -100,7 +105,7 @@
     <option name="FILTER_ERRORS" value="false" />
     <option name="FILTER_WARNINGS" value="false" />
     <option name="FILTER_INFO" value="false" />
-    <option name="FILTER_DEBUG" value="true" />
+    <option name="FILTER_DEBUG" value="false" />
     <option name="CUSTOM_FILTER" />
   </component>
   <component name="ProjectFrameBounds">
@@ -257,24 +262,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="controllers" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rage" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rage" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="app" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
               <option name="myItemId" value="assets" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -297,25 +284,25 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="images" />
+              <option name="myItemId" value="javascripts" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="RailsProjectView" />
       <pane id="Scope" />
+      <pane id="RailsProjectView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="recentsLimit" value="5" />
+    <property name="options.lastSelected" value="project.propVCSSupport.Mappings" />
     <property name="FullScreen" value="false" />
-    <property name="dynamic.classpath" value="false" />
-    <property name="options.splitter.details.proportions" value="0.2" />
     <property name="options.searchVisible" value="true" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="dynamic.classpath" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -588,14 +575,14 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1280" height="709" extended-state="6" />
+    <frame x="0" y="22" width="1280" height="709" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22285251" sideWeight="0.6221498" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.22690438" sideWeight="0.6221498" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32899022" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -672,16 +659,6 @@
     <breakpoint-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/config/environment.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/config/environments/test.rb">
-      <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/config/environments/development.rb">
       <provider selected="true" editor-type-id="text-editor">
         <state line="19" column="3" selection-start="748" selection-end="748" vertical-scroll-proportion="0.34065935" />
@@ -713,9 +690,7 @@
     </entry>
     <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.0.0-p247/gems/google-api-client-0.6.4/lib/google/api_client.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="72" column="8" selection-start="2942" selection-end="2942" vertical-scroll-proportion="0.3323442">
-          <folding />
-        </state>
+        <state line="72" column="8" selection-start="2942" selection-end="2942" vertical-scroll-proportion="0.3323442" />
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.0.0-p247/gems/signet-0.4.5/lib/signet/oauth_2/client.rb">
@@ -732,16 +707,22 @@
     </entry>
     <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.0.0-p247/gems/twitter-5.3.0/lib/twitter/search_results.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="8" selection-start="53" selection-end="53" vertical-scroll-proportion="0.1264045">
-          <folding />
-        </state>
+        <state line="3" column="8" selection-start="53" selection-end="53" vertical-scroll-proportion="0.1264045" />
       </provider>
     </entry>
     <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.0.0-p247/gems/twitter-5.3.0/lib/twitter/rest/api/search.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="30" column="10" selection-start="2944" selection-end="2944" vertical-scroll-proportion="0.65597665">
-          <folding />
-        </state>
+        <state line="30" column="10" selection-start="2944" selection-end="2944" vertical-scroll-proportion="0.65597665" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/images/tweet_16_grey.png">
+      <provider selected="true" editor-type-id="images">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/assets/javascripts/application.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="15" column="18" selection-start="663" selection-end="663" vertical-scroll-proportion="0.63559324" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
@@ -751,22 +732,22 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/assets/images/tweet_16_grey.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/views/layouts/application.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="37" selection-start="285" selection-end="285" vertical-scroll-proportion="0.33123028">
+        <state line="5" column="79" selection-start="147" selection-end="223" vertical-scroll-proportion="0.23659305">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/application/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="329" column="26" selection-start="12129" selection-end="12129" vertical-scroll-proportion="0.6309148">
-          <folding />
+        <state line="303" column="80" selection-start="10904" selection-end="10904" vertical-scroll-proportion="0.8044164">
+          <folding>
+            <marker date="1389530592000" expanded="true" signature="12104:12117" placeholder="..." />
+            <marker date="1389530592000" expanded="true" signature="12104:12124" placeholder="..." />
+            <marker date="1389530592000" expanded="true" signature="12104:12127" placeholder="..." />
+            <marker date="1389530592000" expanded="true" signature="12245:12268" placeholder="..." />
+          </folding>
         </state>
       </provider>
     </entry>

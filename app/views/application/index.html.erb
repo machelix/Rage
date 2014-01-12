@@ -88,10 +88,14 @@
       }
   </style>
   <script src="https://maps.googleapis.com/maps/api/js?v=3.exp&sensor=false&libraries=places&key=AIzaSyCFfsKnB4D-tWvTK0Y3DXAYwnlkbdg8CWg"></script>
+  <%= javascript_include_tag "jquery.timeago.js" %>
   <script>
       // This example adds a search box to a map, using the Google Place Autocomplete
       // feature. People can enter geographical searches. The search box will return a
       // pick list containing a mix of places and predicted search terms.
+      jQuery(document).ready(function() {
+          jQuery("abbr.timeago").timeago();
+      });
 
       function initialize() {
 
@@ -288,8 +292,8 @@
                           map: map,
                           icon: image,
                           twitter_handle: val.handle,
-                          title: val.ts + " : " + val.text,
-                          tweet_ts: val.ts,
+                          title: jQuery.timeago(val.ts) + " : " + val.text,
+                          tweet_ts: jQuery.timeago(val.ts),
                           position: new google.maps.LatLng(tweet_lat,tweet_long)
                       });
 
@@ -297,7 +301,7 @@
 
                       google.maps.event.addListener(tweet_marker,'click', function(){
                           var infowindow = new google.maps.InfoWindow({
-                              content: val.name + " : " + val.ts + " : " + val.text
+                              content: jQuery.timeago(val.ts) + " : " + val.name + " : " + val.text
                           });
                           infowindow.open(map,tweet_marker);
                       });
@@ -324,8 +328,7 @@
 
                   // fill side box with tweets
                   jQuery.each(data, function(i, val) {
-                          $('#sidebar-contents').append($('<dt>').html('<a href="http://twitter.com/' + val.handle + '" target="_blank">' + val.name + '</a>' + ' : ' + (val.ts)));
-
+                          $('#sidebar-contents').append($('<dt>').html('<div style="float: left; width: 50%"><a href="http://twitter.com/' + val.handle + '" target="_blank">' + val.name + '</a></div><div align="right" style="float: left; width: 50%">' + jQuery.timeago(val.ts) + '</div>'));
                           var re = /(https?:\/\/(([-\w\.]+)+(:\d+)?(\/([\w/_\.]*(\?\S+)?)?)?))/g;
                           var result =  (val.text).replace(re, "<a href=\"$1\" class=\"links\" target=\"_blank\" \">$1</a>");   //onmouseover=\"thumbnail(\'$1\')
                           $('#sidebar-contents').append($('<dd>').html(result));
