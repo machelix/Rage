@@ -1,5 +1,6 @@
 require 'twitter'
 require 'google/api_client'
+require 'instagram'
 require 'json'
 require 'date'
 #require 'oauth/oauth_util'
@@ -31,24 +32,55 @@ class ApplicationController < ActionController::Base
 
     @tweets = @client.search('', { geocode: tweet_point, result_type: "recent" , count: 100, since: current_ts} )
 
-    api_response = {}
+    twitter_api_response = {}
     @tweets.collect do |tweet|
       #move to next element if tweet is a retweet
       next if tweet.retweeted_status.class != Twitter::NullObject
 
       (tweet.geo.coordinates.class == Twitter::NullObject) ? nil : tweet.geo.coordinates
-      api_response.merge!("#{tweet.id}" => { "name" => "#{tweet.user.name}", "handle" => "#{tweet.user.screen_name}", "text" => "#{tweet.text}",
+      twitter_api_response.merge!("#{tweet.id}" => { "name" => "#{tweet.user.name}", "handle" => "#{tweet.user.screen_name}", "text" => "#{tweet.text}",
                           "ts" => "#{tweet.created_at}" , "loc" => (tweet.geo.coordinates.class == Twitter::NullObject) ? nil : tweet.geo.coordinates})
     end
 
-    logger.info api_response.to_json
+    logger.info twitter_api_response.to_json
 
     respond_to do |format|
       format.html
-      format.json { render :json => api_response.to_json }
+      format.json { render :json => twitter_api_response.to_json }
     end
 
   end
+
+  def instagram
+    Instagram.configure do |config|
+      config.client_id ="ecbe626fd1fc411fbde97c976883d75c"
+      config.client_secret = "62e542b3ccac4263b1090170a0f0abaf"
+    end
+    ## Default Radius is 1000m(1km) : maximum 5000m
+    search_point = "#{params[:lat]}," + "#{params[:lng]}," + "#{params[:radius]}"
+    additional_search_options = { distance: params[:radius] }
+
+    instagram_api_response = {}
+    #instagram_api_response = Instagram.media_search("37.7808851","-122.3948632")
+    # Get a list of media close to a given latitude and longitude
+    @instagrams =  Instagram.media_search(params[:lat],params[:lng],additional_search_options)
+
+
+    @instagrams.collect do |instagram|
+
+      instagram_api_response.merge!("#{instagram.id}" => { "instagram_url" => "#{instagram.link}", "username" => "#{instagram.user.username}", "user_full_name" => "#{instagram.user.full_name}", "instagram_type" => "#{instagram.type}",
+                                                     "ts" => "#{instagram.created_time}" , "tags" => "#{instagram.tags}", "lat" => "#{instagram.location.latitude}", "long" => "#{instagram.location.longitude}" })
+
+    end
+
+    logger.info instagram_api_response.to_json
+
+    respond_to do |format|
+      format.html
+      format.json { render :json => instagram_api_response.to_json }
+    end
+  end
+
 
   def youtube
     @client = Google::APIClient.new(

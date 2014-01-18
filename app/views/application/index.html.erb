@@ -22,19 +22,6 @@
           font-size: 11px;
       }
 
-      #sidebar-title {
-          height: 10%;
-          width: 100%;
-          padding: 10px;
-          text-align: center;
-          vertical-align: middle;
-          font-weight:bold;
-          font-style:italic;
-          font-size:30px;
-          font-family:"Times New Roman", Times, serif;
-          border: 1px solid black;
-      }
-
       #sidebar-contents {
           height: 100%;
           width: 100%;
@@ -131,10 +118,12 @@
 
                   google.maps.event.addListener(myArea,'radius_changed', function(event) {
                       getTweets(map, mgr, marker.getPosition().lat(), marker.getPosition().lng(), myArea.getRadius());
+                      getInstagrams(map,marker.getPosition().lat(), marker.getPosition().lng(), myArea.getRadius());
                   });
 
                   google.maps.event.addListener(myArea,'click', function(event) {
                       getTweets(map, mgr, marker.getPosition().lat(), marker.getPosition().lng());
+                      getInstagrams(map,marker.getPosition().lat(), marker.getPosition().lng());
                       //getYoutubes(map, mgr, marker.getPosition().lat(), marker.getPosition().lng());
                   });
               });
@@ -188,10 +177,13 @@
 
                       google.maps.event.addListener(myCity,'radius_changed', function(event) {
                           getTweets(map, mgr, marker.getPosition().lat(), marker.getPosition().lng(), myCity.getRadius());
+                          getInstagrams(map,marker.getPosition().lat(), marker.getPosition().lng(), myArea.getRadius());
                       });
 
                       google.maps.event.addListener(myCity,'click', function(event) {
-                            getTweets(map, mgr, marker.getPosition().lat(), marker.getPosition().lng());
+                          getTweets(map, mgr, marker.getPosition().lat(), marker.getPosition().lng());
+                          getInstagrams(map,marker.getPosition().lat(), marker.getPosition().lng());
+
                       });
                   });
 
@@ -248,6 +240,84 @@
           });
       }
 
+      function getInstagrams(map,lat,long,radius,topic,start_ts,stop_ts)
+      {
+          // send radius in meters for instagram api
+          if(typeof(radius)==='undefined') { radius = '500'}
+
+          //start of the day ts
+          var now = new Date();
+          var startOfDay = (new Date(now.getFullYear(), now.getMonth(), now.getDate()) / 1000);
+          //current time as unix ts
+          var currentOfDay = Math.round((new Date()).getTime() / 1000);
+
+          $.ajax({
+              url: '/instagram',
+              type: 'POST',
+              dataType: "json",
+              async: false,
+              data: { lat: lat, lng: long, radius: radius, topic: topic, start_ts: startOfDay, stop_ts: currentOfDay },
+              success: function(data) {
+                  instagram_locations = [];
+
+                  jQuery.each(data, function(i, val) {
+
+                      if (val.lat == null) {
+                          var latlong = calculateLatLong(lat,long)
+                          insta_lat = latlong[0]
+                          insta_long = latlong[1]
+                      } else {
+                          insta_lat = val.lat
+                          insta_long = val.long }
+
+                      // Create a marker for each instagram location
+                      var image = '<%= asset_path 'Instagram_Icon.png' %>'
+
+                      var insta_marker = new google.maps.Marker({
+                          map: map,
+                          icon: image,
+                          twitter_handle: val.username,
+                          title: jQuery.timeago(new Date(val.ts*1000)) + " : " + val.user_full_name,
+                          insta_ts: jQuery.timeago(new Date(val.ts*1000)),
+                          insta_type: val.type,
+                          position: new google.maps.LatLng(insta_lat,insta_long)
+                      });
+
+                      google.maps.event.addListener(insta_marker,'click', function(){
+                          var infowindow = new google.maps.InfoWindow({
+                              content: jQuery.timeago(new Date(val.ts*1000)) + " : " + val.user_full_name + " : " + val.instagram_url
+                          });
+                          infowindow.open(map,insta_marker);
+                      });
+                      instagram_locations.push(insta_marker);
+                  });
+
+                  // create tweet div if does not exists
+                  if ($("#sidebar").length == 0){
+                      $("#map-canvas").css({width: '75%', float: 'left'});
+                      $('<div id="sidebar">').appendTo('body');
+                  }
+
+                  if ($("#sidebar").length > 0 && $("#sidebar-contents").length == 0){
+                      $('#sidebar').append('<div id="sidebar-contents">');
+                  }
+
+                  //if ( $('#sidebar-contents').children().length > 0 ) {
+                      // remove old contents
+                  //    $('#sidebar-contents').children().remove();
+                  //}
+
+                  // fill side box with tweets      <img src="smiley.gif" alt="Smiley face" height="42" width="42">
+                  jQuery.each(data, function(i, val) {
+                      $('#sidebar-contents').append($('<dt>').html('<div style="float: left; width: 50%"><a href="http://instagram.com/' + val.username + '" target="_blank">' + val.user_full_name + '</a></div><div align="right" style="float: left; width: 50%">' + jQuery.timeago(new Date(val.ts*1000)) + '</div>'));
+                      $('#sidebar-contents').append($('<dd>').html('<div><a href="' + val.instagram_url + '" target="_blank">' + val.instagram_url + '</a></div>'));
+                  });
+
+              },
+              error: function() {}
+          });
+      }
+
       function getTweets(map,tweet_mgr,lat,long,radius,topic)
       {
           if(typeof(radius)==='undefined') { radius = '0.5km'
@@ -264,18 +334,6 @@
               success: function(data) {
                   tweet_locations = [];
 
-                  //console.log(tweet_mgr.getTotalMarkers());
-                  //if (tweet_mgr.getTotalMarkers() > 0) {
-                  //    markersArray = tweet_mgr.getMarkers();
-                  //    console.log(markersArray.length);
-                  //    tweet_mgr.removeMarkers(markersArray);
-                  //    for (var i = 0; i < markersArray.length; i++ ) {
-                  //        markersArray[i].setMap(null);
-                  //    }
-                  //    console.log('deleted: ' + tweet_mgr.getTotalMarkers());
-                  //    console.log(markersArray.length);
-                  //}
-
                   jQuery.each(data, function(i, val) {
 
                       if (val.loc == null) {
@@ -288,6 +346,7 @@
 
                       // Create a marker for each tweet location
                       var image = '<%= asset_path 'tweet_16_blue.png' %>'
+
                       var tweet_marker = new google.maps.Marker({
                           map: map,
                           icon: image,
@@ -312,8 +371,6 @@
                   if ($("#sidebar").length == 0){
                       $("#map-canvas").css({width: '75%', float: 'left'});
                       $('<div id="sidebar">').appendTo('body');
-                      //$('#sidebar').append('<div id="sidebar-title">');
-                      //$('#sidebar-title').html("Query Results");
                   }
 
                   if ($("#sidebar").length > 0 && $("#sidebar-contents").length == 0){
@@ -328,17 +385,16 @@
 
                   // fill side box with tweets
                   jQuery.each(data, function(i, val) {
-                          $('#sidebar-contents').append($('<dt>').html('<div style="float: left; width: 50%"><a href="http://twitter.com/' + val.handle + '" target="_blank">' + val.name + '</a></div><div align="right" style="float: left; width: 50%">' + jQuery.timeago(val.ts) + '</div>'));
-                          var re = /(https?:\/\/(([-\w\.]+)+(:\d+)?(\/([\w/_\.]*(\?\S+)?)?)?))/g;
-                          var result =  (val.text).replace(re, "<a href=\"$1\" class=\"links\" target=\"_blank\" \">$1</a>");   //onmouseover=\"thumbnail(\'$1\')
-                          $('#sidebar-contents').append($('<dd>').html('<div>' + result + '</div>'));
+                      $('#sidebar-contents').append($('<dt>').html('<div style="float: left; width: 50%"><a href="http://twitter.com/' + val.handle + '" target="_blank">' + val.name + '</a></div><div align="right" style="float: left; width: 50%">' + jQuery.timeago(val.ts) + '</div>'));
+                      var re = /(https?:\/\/(([-\w\.]+)+(:\d+)?(\/([\w/_\.]*(\?\S+)?)?)?))/g;
+                      var result =  (val.text).replace(re, "<a href=\"$1\" class=\"links\" target=\"_blank\" \">$1</a>");
+                      $('#sidebar-contents').append($('<dd>').html('<div>' + result + '</div>'));
                   });
               },
               error: function() {
               }
           });
       }
-
 
       function calculateLatLong(lat,lon)
       {
@@ -362,9 +418,6 @@
           return [latO.toFixed(8), lonO.toFixed(8)];
       }
 
-      function thumbnail(url) {
-          alert("<div><img src=\""+url+"\"width=\"300\" height=\"150\"></div>");
-      }
   </script>
 </head>
 <body>

@@ -6,6 +6,7 @@ Rage::Application.routes.draw do
   root 'application#index'
   match '/twitter' , to: 'application#twitter' , via: 'post'
   match '/youtube' , to: 'application#youtube' , via: 'get'
+  match '/instagram' , to: 'application#instagram' , via: 'post'
 
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
