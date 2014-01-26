@@ -8,8 +8,6 @@ gem 'google-api-client',  '0.6.4'
 gem 'gon'
 gem 'youtube_it'
 gem 'gdata'
-gem 'gdata_19', '1.1.5'
-gem 'contacts', :git => 'git@github.com:eofferma/contacts.git'
 #gem 'gmaps4rails'
 
 # Use sqlite3 as the database for Active Record
