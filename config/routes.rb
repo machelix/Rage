@@ -7,7 +7,7 @@ Rage::Application.routes.draw do
   match '/twitter' , to: 'application#twitter' , via: 'post'
   match '/youtube' , to: 'application#youtube' , via: 'get'
   match '/instagram' , to: 'application#instagram' , via: 'post'
-
+  match '/social' , to: 'application#social' , via: 'post'
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 

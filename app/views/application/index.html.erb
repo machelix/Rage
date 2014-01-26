@@ -117,13 +117,15 @@
                   myArea.setMap(map);
 
                   google.maps.event.addListener(myArea,'radius_changed', function(event) {
-                      getTweets(map, mgr, marker.getPosition().lat(), marker.getPosition().lng(), myArea.getRadius());
-                      getInstagrams(map,marker.getPosition().lat(), marker.getPosition().lng(), myArea.getRadius());
+                      getSocialContents(map, marker.getPosition().lat(), marker.getPosition().lng(), myArea.getRadius());
+                      //getTweets(map, mgr, marker.getPosition().lat(), marker.getPosition().lng(), myArea.getRadius());
+                      //getInstagrams(map,marker.getPosition().lat(), marker.getPosition().lng(), myArea.getRadius());
                   });
 
                   google.maps.event.addListener(myArea,'click', function(event) {
-                      getTweets(map, mgr, marker.getPosition().lat(), marker.getPosition().lng());
-                      getInstagrams(map,marker.getPosition().lat(), marker.getPosition().lng());
+                      getSocialContents(map, marker.getPosition().lat(), marker.getPosition().lng());
+                      //getTweets(map, mgr, marker.getPosition().lat(), marker.getPosition().lng());
+                      //getInstagrams(map,marker.getPosition().lat(), marker.getPosition().lng());
                       //getYoutubes(map, mgr, marker.getPosition().lat(), marker.getPosition().lng());
                   });
               });
@@ -176,13 +178,15 @@
                       myCity.setMap(map);
 
                       google.maps.event.addListener(myCity,'radius_changed', function(event) {
-                          getTweets(map, mgr, marker.getPosition().lat(), marker.getPosition().lng(), myCity.getRadius());
-                          getInstagrams(map,marker.getPosition().lat(), marker.getPosition().lng(), myArea.getRadius());
+                          getSocialContents(map, marker.getPosition().lat(), marker.getPosition().lng(), myCity.getRadius());
+                          //getTweets(map, mgr, marker.getPosition().lat(), marker.getPosition().lng(), myCity.getRadius());
+                          //getInstagrams(map,marker.getPosition().lat(), marker.getPosition().lng(), myArea.getRadius());
                       });
 
                       google.maps.event.addListener(myCity,'click', function(event) {
-                          getTweets(map, mgr, marker.getPosition().lat(), marker.getPosition().lng());
-                          getInstagrams(map,marker.getPosition().lat(), marker.getPosition().lng());
+                          getSocialContents(map, marker.getPosition().lat(), marker.getPosition().lng());
+                          //getTweets(map, mgr, marker.getPosition().lat(), marker.getPosition().lng());
+                          //getInstagrams(map,marker.getPosition().lat(), marker.getPosition().lng());
 
                       });
                   });
@@ -318,6 +322,95 @@
           });
       }
 
+      function getSocialContents(map,lat,long,radius,topic)
+      {
+          if(typeof(radius)==='undefined') { radius = '0.5km'
+          } else {
+              radius = radius / 1000 +  "km"
+          }
+
+          //start of the day ts
+          var now = new Date();
+          var startOfDay = (new Date(now.getFullYear(), now.getMonth(), now.getDate()) / 1000);
+          //current time as unix ts
+          var currentOfDay = Math.round((new Date()).getTime() / 1000);
+          console.log(startOfDay + " : " + currentOfDay);
+
+          $.ajax({
+              url: '/social',
+              type: 'POST',
+              dataType: "json",
+              async: false,
+              data: { lat: lat, lng: long, radius: radius, topic: topic, start_ts: startOfDay, current_ts: currentOfDay },
+              success: function(data) {
+                  social_content_locations = [];
+
+                  jQuery.each(data, function(i, val) {
+
+                      if (val.lat == null) {
+                          var latlong = calculateLatLong(lat,long)
+                          content_marker_latitude = latlong[0]
+                          content_marker_longitude = latlong[1]
+                      } else {
+                          content_marker_latitude = val.lat
+                          content_marker_longitude = val.long }
+
+                      if (val.source == 'twitter') {
+                            var social_content_icon_image = '<%= asset_path 'twitter.png' %>'
+                      } else if (val.source == 'instagram') {
+                            var social_content_icon_image = '<%= asset_path 'instagram.png' %>'
+                      } else if (val.source == 'youtube') {
+                          var social_content_icon_image = '<%= asset_path 'youtube.png' %>'
+                      }
+
+                      // Create a marker for each tweet location
+                      var social_content_marker = new google.maps.Marker({
+                          map: map,
+                          icon: social_content_icon_image,
+                          content_username: val.username,
+                          title: harmonized_timestamp(val) + " : " + val.content,
+                          content_ts: harmonized_timestamp(val),
+                          position: new google.maps.LatLng(content_marker_latitude,content_marker_longitude)
+                      });
+
+                      google.maps.event.addListener(social_content_marker,'click', function(){
+                          var social_content_info_window = new google.maps.InfoWindow({
+                              content: harmonized_timestamp(val) + " : " + val.full_name + " : " + val.content
+                          });
+                          social_content_info_window.open(map,social_content_marker);
+                      });
+                      social_content_locations.push(social_content_marker);
+                  });
+
+                  // create tweet div if does not exists
+                  if ($("#sidebar").length == 0){
+                      $("#map-canvas").css({width: '75%', float: 'left'});
+                      $('<div id="sidebar">').appendTo('body');
+                  }
+
+                  if ($("#sidebar").length > 0 && $("#sidebar-contents").length == 0){
+                      $('#sidebar').append('<div id="sidebar-contents">');
+                  }
+
+
+                  if ( $('#sidebar-contents').children().length > 0 ) {
+                      // remove old contents
+                      $('#sidebar-contents').children().remove();
+                  }
+
+                  // fill side box with contents
+                  jQuery.each(data, function(i, val) {
+                      $('#sidebar-contents').append($('<dt>').html('<div style="float: left; width: 50%"><a href="http://twitter.com/' + val.username + '" target="_blank">' + val.full_name + '</a></div><div align="right" style="float: left; width: 50%">' + harmonized_timestamp(val) + '</div>'));
+                      var re = /(https?:\/\/(([-\w\.]+)+(:\d+)?(\/([\w/_\.]*(\?\S+)?)?)?))/g;
+                      var result =  (val.content).replace(re, "<a href=\"$1\" class=\"links\" target=\"_blank\" \">$1</a>");
+                      $('#sidebar-contents').append($('<dd>').html('<div>' + result + '</div>'));
+                  });
+              },
+              error: function() {
+              }
+          });
+      }
+
       function getTweets(map,tweet_mgr,lat,long,radius,topic)
       {
           if(typeof(radius)==='undefined') { radius = '0.5km'
@@ -394,6 +487,11 @@
               error: function() {
               }
           });
+      }
+
+      function harmonized_timestamp(val)
+      {
+          return jQuery.timeago(new Date(val.created_at*1000));
       }
 
       function calculateLatLong(lat,lon)

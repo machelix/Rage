@@ -6,6 +6,8 @@ gem 'rails', '4.0.0'
 gem 'twitter'
 gem 'google-api-client',  '0.6.4'
 gem 'gon'
+gem 'youtube_it'
+gem 'gdata'
 #gem 'gmaps4rails'
 
 # Use sqlite3 as the database for Active Record
