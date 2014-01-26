@@ -44,7 +44,7 @@
     <orderEntry type="library" scope="PROVIDED" name="extlib (v0.9.16, RVM: ruby-2.0.0-p247) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="faraday (v0.8.9, RVM: ruby-2.0.0-p247) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="faraday_middleware (v0.9.0, RVM: ruby-2.0.0-p247) [gem]" level="application" />
-    <orderEntry type="library" scope="PROVIDED" name="gdata (v1.1.2, RVM: ruby-2.0.0-p247) [gem]" level="application" />
+    <orderEntry type="library" scope="PROVIDED" name="gdata (v1.1.2@fae93b, RVM: ruby-2.0.0-p247) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="gon (v5.0.1, RVM: ruby-2.0.0-p247) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="google-api-client (v0.6.4, RVM: ruby-2.0.0-p247) [gem]" level="application" />
     <orderEntry type="library" scope="PROVIDED" name="hashie (v2.0.5, RVM: ruby-2.0.0-p247) [gem]" level="application" />
