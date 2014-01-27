@@ -70,19 +70,30 @@ class ApplicationController < ActionController::Base
 
     end
 
-    (JSON.parse(@youtubes.body)['feed']['entry']).collect do |youtube|
-      ## Solve empty lat/long problem
-      if youtube['georss$where'].class == NilClass
-        lat = nil
-        long = nil
-      else
-        lat = youtube['georss$where']['gml$Point']['gml$pos']['$t'].split(' ')[0]
-        long = youtube['georss$where']['gml$Point']['gml$pos']['$t'].split(' ')[1]
-      end
+    if @youtubes.status_code == 200
 
-      api_response.merge!("#{youtube['id']['$t']}" => { "source" => "youtube", "type" => "video", "full_name" => "#{youtube['media$group']['media$credit'][0]['yt$display']}" , "username" => "#{youtube['media$group']['media$credit'][0]['$t']}", "content" => "#{youtube['content']['src']}", "tags" => "#{youtube['media$group']['media$category'][0]['label']}",
-                                                        "created_at" => "#{(youtube['published']['$t']).to_time.to_i}", "lat" => "#{lat}", "long" => "#{long}", "title" => "#{youtube['title']['$t']}"})
+        (JSON.parse(@youtubes.body)['feed']['entry']).collect do |youtube|
+          ## Solve empty lat/long problem
+          if youtube['georss$where'].class == NilClass
+            lat = nil
+            long = nil
+          else
+            lat = youtube['georss$where']['gml$Point']['gml$pos']['$t'].split(' ')[0]
+            long = youtube['georss$where']['gml$Point']['gml$pos']['$t'].split(' ')[1]
+          end
 
+          id = youtube['id']['$t'].class != NilClass ? youtube['id']['$t'] : nil
+          full_name = youtube['media$group']['media$credit'][0]['yt$display'].class != NilClass ? youtube['media$group']['media$credit'][0]['yt$display'] : nil
+          user_name = youtube['media$group']['media$credit'][0]['$t'].class != NilClass ? youtube['media$group']['media$credit'][0]['$t'] : nil
+          content = youtube['content']['src'].class != NilClass ? youtube['content']['src'] : nil
+          tags = youtube['media$group']['media$category'][0]['label'] != NilClass ? youtube['media$group']['media$category'][0]['label'] : nil
+          created_ts = (youtube['published']['$t']) != NilClass ? (youtube['published']['$t']) : nil
+          title = youtube['title']['$t'] != NilClass ? youtube['title']['$t'] : nil
+
+          api_response.merge!("#{id}" => { "source" => "youtube", "type" => "video", "full_name" => "#{full_name}" , "username" => "#{user_name}", "content" => "#{content}", "tags" => "#{tags}",
+                                                            "created_at" => "#{created_ts.to_time.to_i}", "lat" => "#{lat}", "long" => "#{long}", "title" => "#{title}"})
+
+        end
     end
 
     logger.info api_response.to_json
