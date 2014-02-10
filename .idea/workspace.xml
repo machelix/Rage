@@ -2,22 +2,21 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/application_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/application_controller.rb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/application/index.html.erb" afterPath="$PROJECT_DIR$/app/views/application/index.html.erb" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="rage.iws" />
     <ignored path=".idea/workspace.xml" />
     <file path="/Gemfile" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1390756145441" ignored="false" />
-    <file path="/application_controller.rb" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1390850225753" ignored="false" />
+    <file path="/application_controller.rb" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1391187227858" ignored="false" />
     <file path="/routes.rb" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1390078849718" ignored="false" />
-    <file path="/index.html.erb" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1390850814941" ignored="false" />
+    <file path="/index.html.erb" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1392057083584" ignored="false" />
     <file path="/youtube.html.erb" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1385415534295" ignored="false" />
     <file path="$USER_HOME$/rails_projects/sample_app/config/routes.rb" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1385669223084" ignored="false" />
     <file path="/application.html.erb" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1389546075467" ignored="false" />
     <file path="/application.js" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1389448763247" ignored="false" />
     <file path="/twitter.html.erb" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1387117696761" ignored="false" />
-    <file path="/Dummy.txt" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1390846893419" ignored="false" />
+    <file path="/Dummy.txt" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1392056909990" ignored="false" />
     <file path="/database.yml" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1387665475508" ignored="false" />
     <file path="/production.rb" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1388920964603" ignored="false" />
     <file path="/utils.rb" changelist="8161aa86-aa7c-43fc-8bf3-0a2ee55a1ed8" time="1387724951752" ignored="false" />
@@ -50,14 +49,16 @@
       <file leaf-file-name="index.html.erb" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/app/views/application/index.html.erb">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="374" column="0" selection-start="15246" selection-end="15246" vertical-scroll-proportion="13.869842">
+            <state line="412" column="47" selection-start="17687" selection-end="17687" vertical-scroll-proportion="0.8724955">
               <folding>
-                <marker date="1390851078000" expanded="false" signature="12353:12376" placeholder="..." />
-                <marker date="1390851078000" expanded="false" signature="12508:12531" placeholder="..." />
-                <marker date="1390851078000" expanded="false" signature="16621:16644" placeholder="..." />
-                <marker date="1390851078000" expanded="false" signature="16769:16792" placeholder="..." />
-                <marker date="1390851078000" expanded="false" signature="20102:20125" placeholder="..." />
-                <marker date="1390851078000" expanded="false" signature="20243:20266" placeholder="..." />
+                <marker date="1392057088000" expanded="false" signature="12367:12390" placeholder="..." />
+                <marker date="1392057088000" expanded="false" signature="12522:12545" placeholder="..." />
+                <marker date="1392057088000" expanded="true" signature="16692:16715" placeholder="..." />
+                <marker date="1392057088000" expanded="true" signature="16840:16863" placeholder="..." />
+                <marker date="1392057088000" expanded="true" signature="17055:17078" placeholder="..." />
+                <marker date="1392057088000" expanded="true" signature="17205:17228" placeholder="..." />
+                <marker date="1392057088000" expanded="false" signature="20562:20585" placeholder="..." />
+                <marker date="1392057088000" expanded="false" signature="20703:20726" placeholder="..." />
               </folding>
             </state>
           </provider>
@@ -157,7 +158,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="RailsProjectView" />
       <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
@@ -165,28 +165,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="rage" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="rage" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="External Libraries" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ExternalLibrariesNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gdata (v1.1.2@fae93b, RVM: ruby-2.0.0-p247) [gem]" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.NamedLibraryElementNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
           <PATH>
@@ -255,6 +233,7 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="RailsProjectView" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -558,18 +537,18 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="22" width="1280" height="709" extended-state="1" />
+    <frame x="0" y="22" width="1280" height="709" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3298217" sideWeight="0.66013074" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.26337114" sideWeight="0.6188925" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.2828201" sideWeight="0.6205212" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32899022" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.38110748" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.37947884" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -654,9 +633,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/javascripts/jquery.timeago.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/assets/images/youtube.png">
@@ -676,9 +653,7 @@
     </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/rubystubs20/time.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="117" column="13" selection-start="4430" selection-end="4430" vertical-scroll-proportion="0.3323442">
-          <folding />
-        </state>
+        <state line="117" column="13" selection-start="4430" selection-end="4430" vertical-scroll-proportion="0.3323442" />
       </provider>
     </entry>
     <entry file="file://$APPLICATION_HOME_DIR$/rubystubs20/string.rb">
@@ -703,9 +678,7 @@
     </entry>
     <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.0.0-p247/bundler/gems/gdata-fae93bd449d4/lib/gdata.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="0" column="0" selection-start="0" selection-end="0" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Gemfile">
@@ -717,28 +690,28 @@
     </entry>
     <entry file="file://$USER_HOME$/.rvm/gems/ruby-2.0.0-p247/bundler/gems/gdata-fae93bd449d4/lib/gdata/client/base.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="82" column="33" selection-start="3078" selection-end="3089" vertical-scroll-proportion="0.0">
-          <folding />
-        </state>
+        <state line="82" column="33" selection-start="3078" selection-end="3089" vertical-scroll-proportion="0.0" />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/controllers/application_controller.rb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="6" column="49" selection-start="139" selection-end="139" vertical-scroll-proportion="0.26548672">
+        <state line="93" column="5" selection-start="5042" selection-end="5042" vertical-scroll-proportion="2.434555">
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/views/application/index.html.erb">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="374" column="0" selection-start="15246" selection-end="15246" vertical-scroll-proportion="13.869842">
+        <state line="412" column="47" selection-start="17687" selection-end="17687" vertical-scroll-proportion="0.8724955">
           <folding>
-            <marker date="1390851078000" expanded="false" signature="12353:12376" placeholder="..." />
-            <marker date="1390851078000" expanded="false" signature="12508:12531" placeholder="..." />
-            <marker date="1390851078000" expanded="false" signature="16621:16644" placeholder="..." />
-            <marker date="1390851078000" expanded="false" signature="16769:16792" placeholder="..." />
-            <marker date="1390851078000" expanded="false" signature="20102:20125" placeholder="..." />
-            <marker date="1390851078000" expanded="false" signature="20243:20266" placeholder="..." />
+            <marker date="1392057088000" expanded="false" signature="12367:12390" placeholder="..." />
+            <marker date="1392057088000" expanded="false" signature="12522:12545" placeholder="..." />
+            <marker date="1392057088000" expanded="true" signature="16692:16715" placeholder="..." />
+            <marker date="1392057088000" expanded="true" signature="16840:16863" placeholder="..." />
+            <marker date="1392057088000" expanded="true" signature="17055:17078" placeholder="..." />
+            <marker date="1392057088000" expanded="true" signature="17205:17228" placeholder="..." />
+            <marker date="1392057088000" expanded="false" signature="20562:20585" placeholder="..." />
+            <marker date="1392057088000" expanded="false" signature="20703:20726" placeholder="..." />
           </folding>
         </state>
       </provider>

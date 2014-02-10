@@ -88,7 +88,7 @@
 
           var markers = [];
           var map = new google.maps.Map(document.getElementById('map-canvas'), {
-              mapTypeId: google.maps.MapTypeId.SATELLITE
+              mapTypeId: google.maps.MapTypeId.SATELLITE.BOTTOM_CENTER
           });
 
           var defaultBounds = new google.maps.LatLngBounds(
@@ -400,7 +400,11 @@
 
                   // fill side box with contents
                   jQuery.each(data, function(i, val) {
-                      $('#sidebar-contents').append($('<dt>').html('<div style="float: left; width: 50%"><a href="http://twitter.com/' + val.username + '" target="_blank">' + val.full_name + '</a></div><div align="right" style="float: left; width: 50%">' + harmonized_timestamp(val) + '</div>'));
+                      if (val.source == 'twitter') {
+                          $('#sidebar-contents').append($('<dt>').html('<div style="float: left; width: 50%"><a href="http://twitter.com/' + val.username + '" target="_blank">' + val.full_name + '</a></div><div align="right" style="float: left; width: 50%">' + harmonized_timestamp(val) + '</div>'));
+                      } else if (val.source == 'instagram') {
+                          $('#sidebar-contents').append($('<dt>').html('<div style="float: left; width: 50%"><a href="http://instagram.com/' + val.username + '" target="_blank">' + val.full_name + '</a></div><div align="right" style="float: left; width: 50%">' + harmonized_timestamp(val) + '</div>'));
+                      }
                       var re = /(https?:\/\/(([-\w\.]+)+(:\d+)?(\/([\w/_\.]*(\?\S+)?)?)?))/g;
                       var result =  (val.content).replace(re, "<a href=\"$1\" class=\"links\" target=\"_blank\" \">$1</a>");
                       $('#sidebar-contents').append($('<dd>').html('<div>' + result + '</div>'));
