@@ -4,10 +4,8 @@ Rage::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   root 'application#index'
-  match '/twitter' , to: 'application#twitter' , via: 'post'
-  match '/youtube' , to: 'application#youtube' , via: 'get'
-  match '/instagram' , to: 'application#instagram' , via: 'post'
   match '/social' , to: 'application#social' , via: 'post'
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
@@ -42,7 +40,7 @@ Rage::Application.routes.draw do
   #       get 'recent', on: :collection
   #     end
   #   end
-  
+
   # Example resource route with concerns:
   #   concern :toggleable do
   #     post 'toggle'
